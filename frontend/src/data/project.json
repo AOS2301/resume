@@ -1,0 +1,75 @@
+[
+  {
+    "name": "GymSystema",
+    "summary": "Aplicativo de gerencimento de treinos e dietas para academias, com painel de controle para instrutores e monitoramento de progresso dos alunos.",
+    "description": "Sistema de gestão de conteúdo headless com editor visual no-code, modelagem de conteúdo flexível, versionamento de entradas, CDN embutido para assets e API GraphQL auto-gerada a partir dos schemas.",
+    "repo": "https://github.com/AOS2301/gymSystem",
+    "site": "",
+    "tags": ["Vue.Js", "Node.js", "PostgreSQL"],
+    "images": [
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80",
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80"
+    ]
+  },
+  {
+    "name": "SplitUp",
+    "summary": "Plataforma de anotações com IA integrada para resumir e categorizar conteúdo.",
+    "description": "Aplicação de produtividade que usa LLMs para resumir, categorizar e conectar notas automaticamente. Interface limpa com editor markdown, busca semântica e exportação multi-formato.",
+    "repo": "https://github.com/AOS2301/splitup",
+    "site": "https://splitup.app",
+    "tags": ["Vue.js", "OpenAI", "Supabase", "Tailwind"],
+    "images": [
+      "https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80"
+    ]
+  },
+  {
+    "name": "Flux Dashboard",
+    "summary": "Dashboard analítico com gráficos interativos e atualização em tempo real via WebSocket.",
+    "description": "Painel de analytics com mais de 20 tipos de visualizações, filtros dinâmicos, relatórios exportáveis em PDF e conexão via WebSocket para dados ao vivo. Multi-tenant com controle de permissões granular.",
+    "repo": "https://github.com/aos/flux-dashboard",
+    "site": null,
+    "tags": ["Vue.js", "D3.js", "WebSocket", "Node.js"],
+    "images": [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80"
+    ]
+  },
+  {
+    "name": "Cartographer",
+    "summary": "Gerador de mapas de calor para e-commerces baseado em comportamento do usuário.",
+    "description": "Ferramenta de UX analytics que registra cliques, scroll e sessões para gerar heatmaps detalhados. SDK de integração leve (< 2kb gzip), painel de replay de sessões e alertas automáticos por anomalia.",
+    "repo": "https://github.com/aos/cartographer",
+    "site": "https://cartographer.io",
+    "tags": ["TypeScript", "Canvas API", "ClickHouse", "Fastify"],
+    "images": [
+      "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
+    ]
+  },
+  {
+    "name": "Prism CMS",
+    "summary": "CMS headless com editor visual drag-and-drop e API GraphQL gerada automaticamente.",
+    "description": "Sistema de gestão de conteúdo headless com editor visual no-code, modelagem de conteúdo flexível, versionamento de entradas, CDN embutido para assets e API GraphQL auto-gerada a partir dos schemas.",
+    "repo": "https://github.com/aos/prism-cms",
+    "site": null,
+    "tags": ["Node.js", "GraphQL", "MongoDB", "Vue.js"],
+    "images": [
+      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80"
+    ]
+  },
+  {
+    "name": "Specter Auth",
+    "summary": "Serviço de autenticação passwordless com magic links e passkeys.",
+    "description": "Solução de autenticação moderna focada em segurança sem senhas. Suporte a magic links por e-mail/SMS, WebAuthn/Passkeys, MFA via TOTP e análise de risco comportamental para detectar acessos suspeitos.",
+    "repo": "https://github.com/aos/specter-auth",
+    "site": "https://specter-auth.dev",
+    "tags": ["TypeScript", "WebAuthn", "Redis", "PostgreSQL"],
+    "images": [
+      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&q=80",
+      "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&q=80"
+    ]
+  }
+]   

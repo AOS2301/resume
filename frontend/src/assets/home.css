@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+.home {
+  min-height: 100vh;
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 3rem;
+  padding-top: 6rem;
+}
+
+.hero-content {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+/* ── Badge ────────────────────────────────────────── */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(91, 94, 244, 0.5);
+  border-radius: 999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(91, 94, 244, 0.08);
+  width: fit-content;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5b5ef4;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Name ─────────────────────────────────────────── */
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.05;
+}
+
+.name-first {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.name-last {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+/* ── Bio ──────────────────────────────────────────── */
+.hero-bio {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── Animations ───────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero {
+    padding: 0 1.5rem;
+    padding-top: 5rem;
+  }
+}
