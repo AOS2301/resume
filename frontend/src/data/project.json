@@ -5,11 +5,19 @@
     "description": "Sistema de gestão de conteúdo headless com editor visual no-code, modelagem de conteúdo flexível, versionamento de entradas, CDN embutido para assets e API GraphQL auto-gerada a partir dos schemas.",
     "repo": "https://github.com/AOS2301/gymSystem",
     "site": "",
-    "tags": ["Vue.Js", "Node.js", "PostgreSQL"],
+    "tags": [
+      "Vue.Js",
+      "Groq AI",
+      "PostgreSQL",
+      "Node.js",
+      "Docker",
+      "Auth Jwt"
+    ],
     "images": [
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80",
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80"
+      "homeGymSystem.png",
+      "importGymSystem.png",
+      "loginGymSystem.png",
+      "registerGymSystem.png"
     ]
   },
   {
@@ -18,58 +26,48 @@
     "description": "Aplicação de produtividade que usa LLMs para resumir, categorizar e conectar notas automaticamente. Interface limpa com editor markdown, busca semântica e exportação multi-formato.",
     "repo": "https://github.com/AOS2301/splitup",
     "site": "https://splitup.app",
-    "tags": ["Vue.js", "OpenAI", "Supabase", "Tailwind"],
+    "tags": ["Vue.js", "Node.js", "Groq AI"],
     "images": [
       "https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=1200&q=80",
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80"
     ]
   },
   {
-    "name": "Flux Dashboard",
-    "summary": "Dashboard analítico com gráficos interativos e atualização em tempo real via WebSocket.",
-    "description": "Painel de analytics com mais de 20 tipos de visualizações, filtros dinâmicos, relatórios exportáveis em PDF e conexão via WebSocket para dados ao vivo. Multi-tenant com controle de permissões granular.",
-    "repo": "https://github.com/aos/flux-dashboard",
-    "site": null,
-    "tags": ["Vue.js", "D3.js", "WebSocket", "Node.js"],
+    "name": "Caça ao tesouro",
+    "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
+    "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição. O sistema possuía progressão de fases, validação de respostas e páginas interativas para cada desafio, sendo um dos meus primeiros projetos completos voltados para um problema real.",
+    "repo": "https://github.com/AOS2301/Gincana",
+    "site": "https://cacagincana.netlify.app/",
+    "tags": ["html", "css", "JavaScript"],
     "images": [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80"
     ]
   },
   {
-    "name": "Cartographer",
-    "summary": "Gerador de mapas de calor para e-commerces baseado em comportamento do usuário.",
-    "description": "Ferramenta de UX analytics que registra cliques, scroll e sessões para gerar heatmaps detalhados. SDK de integração leve (< 2kb gzip), painel de replay de sessões e alertas automáticos por anomalia.",
-    "repo": "https://github.com/aos/cartographer",
-    "site": "https://cartographer.io",
-    "tags": ["TypeScript", "Canvas API", "ClickHouse", "Fastify"],
+    "name": "TodoList",
+    "summary": "Aplicação de lista de tarefas desenvolvida para praticar conceitos de front-end com JavaScript puro.",
+    "description": "Projeto desenvolvido utilizando HTML, CSS e JavaScript puro com o objetivo de aprimorar minhas habilidades em desenvolvimento front-end. Como eu ainda estava começando a estudar a área e não tinha muito conhecimento prático, decidi criar uma aplicação simples de lista de tarefas para me familiarizar melhor com manipulação do DOM, lógica de interface e organização de código no desenvolvimento web.",
+    "repo": "https://github.com/AOS2301/TodoList",
+    "site": "https://arthurtodolist.netlify.app/",
+    "tags": ["html", "css", "JavaScript"],
     "images": [
-      "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1200&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
+      "todoListPt.png",
+      "todoListIncludePt.png",
+      "todoListEn.png",
+      "todoListAdd.png"
     ]
   },
   {
-    "name": "Prism CMS",
-    "summary": "CMS headless com editor visual drag-and-drop e API GraphQL gerada automaticamente.",
-    "description": "Sistema de gestão de conteúdo headless com editor visual no-code, modelagem de conteúdo flexível, versionamento de entradas, CDN embutido para assets e API GraphQL auto-gerada a partir dos schemas.",
-    "repo": "https://github.com/aos/prism-cms",
+    "name": "Dachaton",
+    "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
+    "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição. O sistema possuía progressão de fases, validação de respostas e páginas interativas para cada desafio, sendo um dos meus primeiros projetos completos voltados para um problema real.",
+    "repo": "https://github.com/orgs/DACathonFeevas/repositories",
     "site": null,
-    "tags": ["Node.js", "GraphQL", "MongoDB", "Vue.js"],
+    "tags": ["SpringBoot", "JavaScript"],
     "images": [
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&q=80",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80"
-    ]
-  },
-  {
-    "name": "Specter Auth",
-    "summary": "Serviço de autenticação passwordless com magic links e passkeys.",
-    "description": "Solução de autenticação moderna focada em segurança sem senhas. Suporte a magic links por e-mail/SMS, WebAuthn/Passkeys, MFA via TOTP e análise de risco comportamental para detectar acessos suspeitos.",
-    "repo": "https://github.com/aos/specter-auth",
-    "site": "https://specter-auth.dev",
-    "tags": ["TypeScript", "WebAuthn", "Redis", "PostgreSQL"],
-    "images": [
-      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&q=80"
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80"
     ]
   }
 ]   

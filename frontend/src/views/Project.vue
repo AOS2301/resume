@@ -4,7 +4,22 @@ import NavBar from '../components/NavBar.vue'
 import '../assets/project.css'
 import projectsData from '../data/project.json'
  
-const projects = ref(projectsData.map((p, i) => ({ id: i, ...p })))
+// Importa todas as imagens da pasta de uma vez
+const imageModules = import.meta.glob('../data/img/*', { eager: true })
+
+// Função helper para resolver o caminho
+function resolveImg(filename) {
+  const key = `../data/img/${filename}`
+  return imageModules[key]?.default ?? ''
+}
+
+const projects = ref(
+  projectsData.map((p, i) => ({
+    id: i,
+    ...p,
+    images: p.images.map(resolveImg)
+  }))
+)
 
 // ── Modal state ────────────────────────────────────────────────────────────
 const activeProject = ref(null)
