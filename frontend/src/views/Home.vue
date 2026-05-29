@@ -6,6 +6,8 @@ import NavBar from '../components/NavBar.vue'
 <template>
   <main class="home">
     <NavBar />
+
+    <!-- ── HERO ──────────────────────────────────────── -->
     <section class="hero">
       <div class="hero-content">
         <span class="availability-badge">
@@ -37,42 +39,27 @@ import NavBar from '../components/NavBar.vue'
 
       <div class="hero-image-wrapper">
         <div class="hero-image">
-        <img
-          src="../data/img/home/aos.png"
-          alt="Arthur Osvaldo Schmitz"
-          class="hero-photo"
-        />
-      </div>
-      <div class="social-links">
-          <a 
-            href="https://www.linkedin.com/in/arthurschmitz/" 
-            target="_blank"
-            class="social-link" 
-            aria-label="LinkedIn"
-          >
+          <img
+            src="../data/img/home/aos.png"
+            alt="Arthur Osvaldo Schmitz"
+            class="hero-photo"
+          />
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/arthurschmitz/" target="_blank" class="social-link" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="4"/>
               <path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/>
             </svg>
             LinkedIn
           </a>
-          <a 
-            href="https://github.com/AOS2301" 
-            target="_blank" 
-            class="social-link" 
-            aria-label="GitHub"
-          >
+          <a href="https://github.com/AOS2301" target="_blank" class="social-link" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>
             </svg>
             GitHub
           </a>
-          <a 
-            href="https://www.instagram.com/arthur_schmitz06/" 
-            target="_blank" 
-            class="social-link" 
-            aria-label="Instagram"
-          >
+          <a href="https://www.instagram.com/arthur_schmitz06/" target="_blank" class="social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="6"/>
               <circle cx="12" cy="12" r="4"/>
@@ -84,39 +71,115 @@ import NavBar from '../components/NavBar.vue'
       </div>
     </section>
 
-    <section class="projects" id="projetos">
-      <div class="projects-header">
-        <span class="section-tag">// PROJETOS</span>
-        <h2 class="section-title">Em Destaque</h2>
+    <!-- ── FORMAÇÃO ACADÊMICA ─────────────────────────── -->
+    <section class="section" id="formacao">
+      <div class="section-header">
+        <span class="section-tag">// FORMAÇÃO</span>
+        <h2 class="section-title">Carreira Acadêmica</h2>
       </div>
 
-      <div class="projects-grid">
-        <article class="project-card" v-for="project in projects" :key="project.title">
-          <div class="project-card-top">
-            <span class="project-tag">{{ project.tag }}</span>
-            <div class="project-links">
-              <a :href="project.github" target="_blank" class="project-icon-link" aria-label="Ver código">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>
-                </svg>
-              </a>
-              <a v-if="project.live" :href="project.live" target="_blank" class="project-icon-link" aria-label="Ver ao vivo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
+      <div class="timeline">
+        <div class="timeline-item" v-for="edu in education" :key="edu.institution">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <div>
+                <h3 class="timeline-title">{{ edu.degree }}</h3>
+                <span class="timeline-institution">{{ edu.institution }}</span>
+              </div>
+              <span class="timeline-period">{{ edu.period }}</span>
+            </div>
+            <p class="timeline-desc">{{ edu.description }}</p>
+            <div class="timeline-tags" v-if="edu.highlights && edu.highlights.length">
+              <span class="timeline-tag" v-for="h in edu.highlights" :key="h">{{ h }}</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-desc">{{ project.description }}</p>
+    <!-- ── CURSOS & CERTIFICADOS ──────────────────────── -->
+    <section class="section" id="cursos">
+      <div class="section-header">
+        <span class="section-tag">// QUALIFICAÇÕES</span>
+        <h2 class="section-title">Cursos & Certificados</h2>
+      </div>
 
-          <div class="project-techs">
-            <span class="project-tech" v-for="t in project.techs" :key="t">{{ t }}</span>
+      <div class="certs-grid">
+        <article class="cert-card" v-for="cert in certifications" :key="cert.title">
+          <div class="cert-top">
+            <span class="cert-category" :class="'cert-category--' + cert.category">
+              {{ cert.categoryLabel }}
+            </span>
+            <span class="cert-year">{{ cert.year }}</span>
+          </div>
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <span class="cert-issuer">{{ cert.issuer }}</span>
+          <div class="cert-footer">
+            <div class="cert-skills">
+              <span class="cert-skill" v-for="s in cert.skills" :key="s">{{ s }}</span>
+            </div>
+            <a v-if="cert.credentialUrl" :href="cert.credentialUrl" target="_blank" class="cert-link" aria-label="Ver credencial">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- ── EXPERIÊNCIA PROFISSIONAL ───────────────────── -->
+    <section class="section" id="experiencia">
+      <div class="section-header">
+        <span class="section-tag">// EXPERIÊNCIA</span>
+        <h2 class="section-title">Trajetória Profissional</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item" v-for="job in experience" :key="job.company + job.period">
+          <div class="timeline-dot timeline-dot--accent"></div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <div>
+                <h3 class="timeline-title">{{ job.role }}</h3>
+                <span class="timeline-institution">{{ job.company }}</span>
+              </div>
+              <span class="timeline-period">{{ job.period }}</span>
+            </div>
+            <p class="timeline-desc">{{ job.description }}</p>
+            <div class="timeline-tags" v-if="job.techs && job.techs.length">
+              <span class="timeline-tag" v-for="t in job.techs" :key="t">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HABILIDADES ────────────────────────────────── -->
+    <section class="section" id="habilidades">
+      <div class="section-header">
+        <span class="section-tag">// SKILLS</span>
+        <h2 class="section-title">Habilidades Técnicas</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group" v-for="group in skillGroups" :key="group.category">
+          <span class="skill-group-label">{{ group.category }}</span>
+          <div class="skill-list">
+            <div class="skill-item" v-for="skill in group.skills" :key="skill.name">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" :style="{ width: skill.percent + '%' }"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -136,32 +199,124 @@ export default {
         { name: 'REST APIs',   color: '#5b5ef4' },
         { name: 'Git',         color: '#f05032' },
       ],
-      projects: [
+
+      education: [
         {
-          title: 'Nome do Projeto 1',
-          tag: 'Full Stack',
-          description: 'Breve descrição do que o projeto faz, problema que resolve e tecnologias envolvidas. Substitua por seus projetos reais.',
-          techs: ['Vue.js', 'Node.js', 'PostgreSQL'],
-          github: 'https://github.com/AOS2301/projeto-1',
-          live: 'https://projeto-1.vercel.app',
+          degree: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
+          institution: 'Nome da Instituição',
+          period: '2023 – Atualmente',
+          description: 'Curso focado no desenvolvimento de software, estruturas de dados, banco de dados relacionais, engenharia de software e desenvolvimento web. Substitua com sua instituição real.',
+          highlights: ['POO', 'Banco de Dados', 'Eng. de Software', 'Redes'],
         },
         {
-          title: 'Nome do Projeto 2',
-          tag: 'Frontend',
-          description: 'Breve descrição do que o projeto faz, problema que resolve e tecnologias envolvidas. Substitua por seus projetos reais.',
-          techs: ['Vue.js', 'JavaScript', 'CSS'],
-          github: 'https://github.com/AOS2301/projeto-2',
-          live: null,
+          degree: 'Ensino Médio Técnico em Informática',
+          institution: 'Nome da Escola Técnica',
+          period: '2020 – 2022',
+          description: 'Formação técnica com ênfase em programação, lógica de computação e infraestrutura de TI. Adicione detalhes reais da sua formação técnica.',
+          highlights: ['Lógica de Programação', 'Redes', 'Hardware'],
+        },
+      ],
+
+      certifications: [
+        {
+          title: 'Vue.js 3 — Completo',
+          issuer: 'Udemy',
+          year: '2024',
+          category: 'frontend',
+          categoryLabel: 'Frontend',
+          skills: ['Vue 3', 'Composition API', 'Vuex', 'Router'],
+          credentialUrl: null,
         },
         {
-          title: 'Nome do Projeto 3',
-          tag: 'Backend',
-          description: 'Breve descrição do que o projeto faz, problema que resolve e tecnologias envolvidas. Substitua por seus projetos reais.',
-          techs: ['Node.js', 'REST API', 'PostgreSQL'],
-          github: 'https://github.com/AOS2301/projeto-3',
-          live: null,
+          title: 'Node.js: API RESTful com Express',
+          issuer: 'Udemy',
+          year: '2024',
+          category: 'backend',
+          categoryLabel: 'Backend',
+          skills: ['Node.js', 'Express', 'JWT', 'PostgreSQL'],
+          credentialUrl: null,
         },
-      ]
+        {
+          title: 'JavaScript Moderno — ES6+',
+          issuer: 'Origamid / Udemy',
+          year: '2023',
+          category: 'linguagem',
+          categoryLabel: 'Linguagem',
+          skills: ['ES6+', 'Async/Await', 'Modules', 'DOM'],
+          credentialUrl: null,
+        },
+        {
+          title: 'Git & GitHub — Do Iniciante ao Avançado',
+          issuer: 'Udemy',
+          year: '2023',
+          category: 'devops',
+          categoryLabel: 'DevOps',
+          skills: ['Git', 'Branching', 'Pull Request', 'CI'],
+          credentialUrl: null,
+        },
+        {
+          title: 'SQL e PostgreSQL — Completo',
+          issuer: 'Udemy',
+          year: '2023',
+          category: 'banco',
+          categoryLabel: 'Banco de Dados',
+          skills: ['PostgreSQL', 'Joins', 'Índices', 'Views'],
+          credentialUrl: null,
+        },
+        {
+          title: 'HTML & CSS — Responsivo e Moderno',
+          issuer: 'Origamid',
+          year: '2022',
+          category: 'frontend',
+          categoryLabel: 'Frontend',
+          skills: ['CSS Grid', 'Flexbox', 'Responsivo', 'BEM'],
+          credentialUrl: null,
+        },
+      ],
+
+      experience: [
+        {
+          role: 'Desenvolvedor Full Stack Júnior',
+          company: 'Nome da Empresa',
+          period: 'Jan 2024 – Atualmente',
+          description: 'Desenvolvimento e manutenção de aplicações web utilizando Vue.js no frontend e Node.js no backend. Integração com APIs externas e modelagem de banco de dados PostgreSQL. Substitua com sua experiência real.',
+          techs: ['Vue.js', 'Node.js', 'PostgreSQL', 'REST API'],
+        },
+        {
+          role: 'Estágio em Desenvolvimento Web',
+          company: 'Nome da Empresa',
+          period: 'Jul 2023 – Dez 2023',
+          description: 'Auxílio no desenvolvimento de interfaces responsivas e consumo de APIs REST. Participação em reuniões de equipe e code reviews. Substitua com sua experiência real.',
+          techs: ['JavaScript', 'HTML/CSS', 'Vue.js', 'Git'],
+        },
+      ],
+
+      skillGroups: [
+        {
+          category: 'Frontend',
+          skills: [
+            { name: 'Vue.js',      level: 'Intermediário', percent: 70 },
+            { name: 'JavaScript',  level: 'Intermediário', percent: 68 },
+            { name: 'HTML / CSS',  level: 'Avançado',      percent: 85 },
+          ],
+        },
+        {
+          category: 'Backend',
+          skills: [
+            { name: 'Node.js',     level: 'Básico–Intermediário', percent: 55 },
+            { name: 'REST APIs',   level: 'Intermediário',         percent: 65 },
+            { name: 'PostgreSQL',  level: 'Básico–Intermediário',  percent: 55 },
+          ],
+        },
+        {
+          category: 'Ferramentas',
+          skills: [
+            { name: 'Git / GitHub', level: 'Intermediário', percent: 70 },
+            { name: 'VS Code',      level: 'Avançado',      percent: 90 },
+            { name: 'Postman',      level: 'Intermediário', percent: 65 },
+          ],
+        },
+      ],
     }
   }
 }
