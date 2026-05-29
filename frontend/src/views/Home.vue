@@ -135,7 +135,6 @@ export default {
         { name: 'HTML/CSS',    color: '#e34c26' },
         { name: 'REST APIs',   color: '#5b5ef4' },
         { name: 'Git',         color: '#f05032' },
-        { name: 'TypeScript',  color: '#3178c6' },
       ],
       projects: [
         {
