@@ -28,20 +28,21 @@
     "site": "https://splitup.app",
     "tags": ["Vue.js", "Node.js", "Groq AI"],
     "images": [
-      "https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80"
+      "splitup1.png",
+      "splitup2.png"
     ]
   },
   {
-    "name": "Caça ao tesouro",
+    "name": "Dachaton",
     "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
     "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição. O sistema possuía progressão de fases, validação de respostas e páginas interativas para cada desafio, sendo um dos meus primeiros projetos completos voltados para um problema real.",
-    "repo": "https://github.com/AOS2301/Gincana",
-    "site": "https://cacagincana.netlify.app/",
-    "tags": ["html", "css", "JavaScript"],
+    "repo": "https://github.com/orgs/DACathonFeevas/repositories",
+    "site": null,
+    "tags": ["SpringBoot", "JavaScript", "html", "css"],
     "images": [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80"
+      "DacFunctionality.png",
+      "caminhoCritico.png",
+      "loginDac.png"
     ]
   },
   {
@@ -59,15 +60,16 @@
     ]
   },
   {
-    "name": "Dachaton",
+    "name": "Caça ao tesouro",
     "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
     "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição. O sistema possuía progressão de fases, validação de respostas e páginas interativas para cada desafio, sendo um dos meus primeiros projetos completos voltados para um problema real.",
-    "repo": "https://github.com/orgs/DACathonFeevas/repositories",
-    "site": null,
-    "tags": ["SpringBoot", "JavaScript"],
+    "repo": "https://github.com/AOS2301/Gincana",
+    "site": "https://cacagincana.netlify.app/",
+    "tags": ["html", "css", "JavaScript"],
     "images": [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80"
+      "choseEquip.png",
+      "rulesTeams.png",
+      "level1.png"
     ]
   }
 ]   
