@@ -21,10 +21,11 @@ import NavBar from '../components/NavBar.vue'
         </div>
 
         <p class="hero-bio">
-          Desenvolvedor full stack júnior focado em aplicações web modernas utilizando Vue.js, Node.js e JavaScript.
-          Possuo experiência com integração de APIs, requisições HTTP e bancos de dados PostgreSQL.
-          Gosto de aprender novas tecnologias e estou constantemente buscando evoluir minhas habilidades no
-          desenvolvimento de software.
+          Desenvolvedor de software com experiência em aplicações web utilizando Java, Vue.js, JavaScript e PostgreSQL.
+          Atuo no desenvolvimento e manutenção de sistemas empresariais, integrações de APIs e modelagem de banco de
+          dados.
+          Atualmente curso Ciência da Computação e busco evoluir continuamente minhas habilidades em desenvolvimento de
+          software e arquitetura de sistemas.
         </p>
 
         <div class="tech-stack">
@@ -198,17 +199,13 @@ export default {
     return {
       techStack: [
         { name: 'Vue.js', color: '#42b883' },
+        { name: 'Java', color: '#b07219' },
         { name: 'JavaScript', color: '#f7df1e' },
-        { name: 'HTML5', color: '#e34c26' },
-        { name: 'CSS3', color: '#264de4' },
-        { name: 'Node.js', color: '#68a063' },
-        { name: 'Express.js', color: '#000000' },
-        { name: 'REST APIs', color: '#5b5ef4' },
         { name: 'PostgreSQL', color: '#336791' },
+        { name: 'Node.js', color: '#68a063' },
+        { name: 'REST APIs', color: '#5b5ef4' },
         { name: 'Git', color: '#f05032' },
-        { name: 'Docker', color: '#2496ed' },
-        { name: 'Linux', color: '#333333' },
-        { name: 'Java (basics)', color: '#b07219' }
+        { name: 'Linux', color: '#333333' }
       ],
 
       education: [
@@ -216,78 +213,79 @@ export default {
           degree: 'Bacharelado em Ciência da Computação',
           institution: 'UNISINOS',
           period: '2026 – Atualmente',
-          description: 'Curso focado no desenvolvimento de software, estruturas de dados, banco de dados relacionais, engenharia de software e desenvolvimento web. Substitua com sua instituição real.',
-          highlights: ['POO', 'Banco de Dados', 'Eng. de Software', 'Redes'],
+          description: 'Graduação voltada para desenvolvimento de software, algoritmos, estruturas de dados, banco de dados, engenharia de software e arquitetura de sistemas.',
+          highlights: [
+            'POO',
+            'Estruturas de Dados',
+            'Banco de Dados',
+            'Engenharia de Software'
+          ],
+        },
+        {
+          degree: 'Intercâmbio de Inglês',
+          institution: 'Melbourne, Austrália',
+          period: 'Set 2025 – Jan 2026',
+          description: 'Experiência internacional voltada ao aprimoramento do idioma inglês e desenvolvimento pessoal em ambiente multicultural.',
+          highlights: [
+            'Inglês',
+            'Comunicação',
+            'Experiência Internacional'
+          ],
         },
         {
           degree: 'Bacharelado em Ciência da Computação',
           institution: 'Feevale',
           period: '2024 – 2025',
-          description: 'Curso focado no desenvolvimento de software, estruturas de dados, banco de dados relacionais, engenharia de software e desenvolvimento web. Substitua com sua instituição real.',
-          highlights: ['POO', 'Banco de Dados', 'Eng. de Software', 'Redes'],
+          description: 'Formação acadêmica focada em fundamentos da computação, programação, banco de dados e desenvolvimento de software.',
+          highlights: [
+            'Algoritmos',
+            'POO',
+            'Banco de Dados',
+            'Desenvolvimento Web'
+          ],
         },
         {
           degree: 'Técnico em Informática',
           institution: 'Instituto Ivoti',
           period: '2021 – 2023',
-          description: 'Formação técnica com ênfase em programação, lógica de computação e infraestrutura de TI. Adicione detalhes reais da sua formação técnica.',
-          highlights: ['Lógica de Programação', 'Redes', 'Hardware'],
+          description: 'Formação técnica de três anos com foco em lógica de programação, desenvolvimento de software, banco de dados, redes de computadores e fundamentos de tecnologia da informação.',
+          highlights: [
+            'Lógica de Programação',
+            'Banco de Dados',
+            'Redes',
+            'Desenvolvimento'
+          ],
         },
       ],
 
       certifications: [
         {
-          title: 'Vue.js 3 — Completo',
+          title: 'O Curso Definitivo de Lógica de Programação',
           issuer: 'Udemy',
           year: '2024',
-          category: 'frontend',
-          categoryLabel: 'Frontend',
-          skills: ['Vue 3', 'Composition API', 'Vuex', 'Router'],
-          credentialUrl: null,
-        },
-        {
-          title: 'Node.js: API RESTful com Express',
-          issuer: 'Udemy',
-          year: '2024',
-          category: 'backend',
-          categoryLabel: 'Backend',
-          skills: ['Node.js', 'Express', 'JWT', 'PostgreSQL'],
-          credentialUrl: null,
-        },
-        {
-          title: 'JavaScript Moderno — ES6+',
-          issuer: 'Origamid / Udemy',
-          year: '2023',
           category: 'linguagem',
-          categoryLabel: 'Linguagem',
-          skills: ['ES6+', 'Async/Await', 'Modules', 'DOM'],
+          categoryLabel: 'Programação',
+          skills: [
+            'VisualG',
+            'C',
+            'C++',
+            'Python',
+            'Java'
+          ],
           credentialUrl: null,
         },
         {
-          title: 'Git & GitHub — Do Iniciante ao Avançado',
+          title: 'Dominando Banco de Dados, Conceitos e Linguagem SQL',
           issuer: 'Udemy',
-          year: '2023',
-          category: 'devops',
-          categoryLabel: 'DevOps',
-          skills: ['Git', 'Branching', 'Pull Request', 'CI'],
-          credentialUrl: null,
-        },
-        {
-          title: 'SQL e PostgreSQL — Completo',
-          issuer: 'Udemy',
-          year: '2023',
+          year: '2024',
           category: 'banco',
           categoryLabel: 'Banco de Dados',
-          skills: ['PostgreSQL', 'Joins', 'Índices', 'Views'],
-          credentialUrl: null,
-        },
-        {
-          title: 'HTML & CSS — Responsivo e Moderno',
-          issuer: 'Origamid',
-          year: '2022',
-          category: 'frontend',
-          categoryLabel: 'Frontend',
-          skills: ['CSS Grid', 'Flexbox', 'Responsivo', 'BEM'],
+          skills: [
+            'SQL',
+            'Modelagem',
+            'SQL Server',
+            'Administração de Banco'
+          ],
           credentialUrl: null,
         },
       ],
@@ -295,24 +293,44 @@ export default {
       experience: [
         {
           role: 'Desenvolvedor Full Stack Júnior',
-          company: 'PRD Tecnologia e gestão',
-          period: 'Jun 2026 – Atualmente',
-          description: 'Desenvolvimento e manutenção de aplicações web utilizando Vue.js no frontend e Node.js no backend. Integração com APIs externas e modelagem de banco de dados PostgreSQL. Substitua com sua experiência real.',
-          techs: ['Vue.js', 'Node.js', 'PostgreSQL', 'REST API'],
+          company: 'PRD Tecnologia e Gestão',
+          period: 'Jan 2026 – Atualmente',
+          description: 'Atuação no desenvolvimento e manutenção de sistemas empresariais utilizando Java, Vue.js e PostgreSQL. Responsável pela implementação de novas funcionalidades, correção de problemas em ambiente produtivo, desenvolvimento de interfaces web, integração entre sistemas via APIs REST e criação de consultas SQL para suporte às regras de negócio. Participação na manutenção de relatórios JasperReports e soluções de impressão térmica utilizadas por clientes.',
+          techs: [
+            'Java',
+            'Vue.js',
+            'PostgreSQL',
+            'REST APIs',
+            'JasperReports',
+            'Git'
+          ],
         },
+
         {
           role: 'Desenvolvedor Java Júnior',
-          company: 'PRD Tecnologia e gestão',
-          period: 'fev 2024 – set 2025',
-          description: 'Desenvolvimento e manutenção de aplicações web utilizando Vue.js no frontend e Node.js no backend. Integração com APIs externas e modelagem de banco de dados PostgreSQL. Substitua com sua experiência real.',
-          techs: ['Vue.js', 'Node.js', 'PostgreSQL', 'REST API'],
+          company: 'PRD Tecnologia e Gestão',
+          period: 'Fev 2024 – Jun 2025',
+          description: 'Desenvolvimento e manutenção de funcionalidades em sistemas ERP corporativos utilizando Java e PostgreSQL. Atuação na análise e correção de defeitos, criação de consultas SQL, manutenção de relatórios gerenciais, implementação de regras de negócio e suporte técnico para demandas internas e de clientes.',
+          techs: [
+            'Java',
+            'PostgreSQL',
+            'SQL',
+            'JasperReports',
+            'SVN'
+          ],
         },
+
         {
-          role: 'Estágio Desenvolvedor ERP',
-          company: 'PRD Tecnologia e gestão',
-          period: 'Ago 2023 – fev 2024',
-          description: 'Auxílio no desenvolvimento de interfaces responsivas e consumo de APIs REST. Participação em reuniões de equipe e code reviews. Substitua com sua experiência real.',
-          techs: ['JavaScript', 'HTML/CSS', 'Vue.js', 'Git'],
+          role: 'Estagiário de Desenvolvimento ERP',
+          company: 'PRD Tecnologia e Gestão',
+          period: 'Ago 2023 – Fev 2024',
+          description: 'Participação no desenvolvimento e suporte de sistemas ERP, realizando manutenção de funcionalidades existentes, testes, consultas em banco de dados, análise de chamados e auxílio na resolução de problemas reportados por usuários. Contato direto com processos de negócio e práticas de desenvolvimento utilizadas em ambiente corporativo.',
+          techs: [
+            'Java',
+            'PostgreSQL',
+            'SQL',
+            'SVN'
+          ],
         },
       ],
 
@@ -321,29 +339,35 @@ export default {
           category: 'Frontend',
           skills: [
             { name: 'Vue.js', level: 'Intermediário', percent: 75 },
-            { name: 'JavaScript', level: 'Intermediário', percent: 72 },
-            { name: 'HTML / CSS', level: 'Avançado', percent: 85 },
+            { name: 'JavaScript', level: 'Intermediário', percent: 70 },
+            { name: 'HTML / CSS', level: 'Intermediário+', percent: 80 },
           ],
         },
         {
           category: 'Backend',
           skills: [
-            { name: 'Node.js', level: 'Intermediário', percent: 75 },
-            { name: 'Java', level: 'Básico', percent: 45 },
-            { name: 'Express.js', level: 'Intermediário', percent: 72 },
-            { name: 'REST APIs', level: 'Intermediário', percent: 75 },
-            { name: 'PostgreSQL', level: 'Intermediário', percent: 80 },
+            { name: 'Node.js', level: 'Intermediário', percent: 65 },
+            { name: 'Express.js', level: 'Intermediário', percent: 70 },
+            { name: 'REST APIs', level: 'Intermediário+', percent: 80 },
+            { name: 'Java', level: 'Intermediário', percent: 65 },
+          ],
+        },
+        {
+          category: 'Banco de Dados',
+          skills: [
+            { name: 'PostgreSQL', level: 'Intermediário+', percent: 82 },
+            { name: 'SQL', level: 'Intermediário+', percent: 80 },
           ],
         },
         {
           category: 'Ferramentas',
           skills: [
-            { name: 'Git / GitHub', level: 'Avançado', percent: 85 },
-            { name: 'Docker', level: 'Básico', percent: 55 },
-            { name: 'Linux', level: 'Básico', percent: 35 },
+            { name: 'Git / GitHub', level: 'Básico', percent: 45 },
+            { name: 'Docker', level: 'Básico', percent: 45 },
+            { name: 'Linux', level: 'Iniciante', percent: 30 },
           ],
         },
-      ]
+      ],
     }
   }
 }
