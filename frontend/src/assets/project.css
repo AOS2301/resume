@@ -398,3 +398,56 @@
   transform: scale(0.95) translateY(16px);
   opacity: 0;
 }
+
+/* ════════════════════════════════════════════════════
+   MOBILE  ≤ 640px
+════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .projects-section {
+    padding: 5.5rem 1.25rem 4rem;
+  }
+
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    border-radius: 16px 16px 0 0;
+    max-height: 92vh;
+  }
+
+  /* Imagem menor e sem margin negativo — prioriza o título/tags/descrição visíveis */
+  .slideshow {
+    aspect-ratio: 16 / 9;
+    max-height: 30vh;
+    margin-top: 0;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modal-close {
+    top: 0.75rem;
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .modal-info {
+    padding: 1.25rem 1.25rem 2rem;
+    gap: 1rem;
+  }
+
+  .modal-info-top {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modal-title { font-size: 1.4rem; }
+
+  .modal-description { font-size: 0.88rem; }
+
+  .modal-links { flex-direction: column; }
+
+  .modal-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
