@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar from '../components/NavBar.vue'
 import '../assets/project.css'
 import projectsData from '../data/project.json'
- 
+
 // Importa todas as imagens da pasta de uma vez
 const imageModules = import.meta.glob('../data/img/*', { eager: true })
 
@@ -81,15 +81,9 @@ function onCardMouseLeave(el) {
       </div>
 
       <div class="cards-grid">
-        <div
-          v-for="(project, i) in projects"
-          :key="project.id"
-          class="card"
-          :style="{ animationDelay: `${i * 80}ms` }"
+        <div v-for="(project, i) in projects" :key="project.id" class="card" :style="{ animationDelay: `${i * 80}ms` }"
           @mousemove="onCardMouseMove($event, $event.currentTarget)"
-          @mouseleave="onCardMouseLeave($event.currentTarget)"
-          @click="openProject(project)"
-        >
+          @mouseleave="onCardMouseLeave($event.currentTarget)" @click="openProject(project)">
           <!-- preview image -->
           <div class="card-thumb">
             <img :src="project.images[0]" :alt="project.name" loading="lazy" />
@@ -106,11 +100,19 @@ function onCardMouseLeave(el) {
 
             <div class="card-links" @click.stop>
               <a :href="project.repo" target="_blank" rel="noopener" class="card-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
                 Repo
               </a>
-              <a v-if="project.site" :href="project.site" target="_blank" rel="noopener" class="card-link card-link--site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <a v-if="project.site" :href="project.site" target="_blank" rel="noopener"
+                class="card-link card-link--site">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
                 Live
               </a>
             </div>
@@ -129,22 +131,20 @@ function onCardMouseLeave(el) {
 
           <!-- Slideshow -->
           <div class="slideshow">
-            <img
-              :key="slideIndex"
-              :src="activeProject.images[slideIndex]"
-              :alt="`${activeProject.name} screenshot ${slideIndex + 1}`"
-              class="slide-img"
-            />
+            <img :key="slideIndex" :src="activeProject.images[slideIndex]"
+              :alt="`${activeProject.name} screenshot ${slideIndex + 1}`" class="slide-img" />
+
+            <!-- NOVO: zonas de clique esquerda/direita -->
+            <div v-if="activeProject.images.length > 1" class="slide-nav-zones">
+              <button class="slide-zone slide-zone--prev" @click.stop="prevSlide" aria-label="Imagem anterior"></button>
+              <button class="slide-zone slide-zone--next" @click.stop="nextSlide" aria-label="Próxima imagem"></button>
+            </div>
+
             <div v-if="activeProject.images.length > 1" class="slide-controls">
               <button class="slide-btn" @click="prevSlide">‹</button>
               <div class="slide-dots">
-                <span
-                  v-for="(_, idx) in activeProject.images"
-                  :key="idx"
-                  class="dot"
-                  :class="{ active: idx === slideIndex }"
-                  @click="slideIndex = idx"
-                />
+                <span v-for="(_, idx) in activeProject.images" :key="idx" class="dot"
+                  :class="{ active: idx === slideIndex }" @click="slideIndex = idx" />
               </div>
               <button class="slide-btn" @click="nextSlide">›</button>
             </div>
@@ -163,11 +163,19 @@ function onCardMouseLeave(el) {
 
             <div class="modal-links">
               <a :href="activeProject.repo" target="_blank" rel="noopener" class="modal-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
                 Ver Repositório
               </a>
-              <a v-if="activeProject.site" :href="activeProject.site" target="_blank" rel="noopener" class="modal-link modal-link--primary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <a v-if="activeProject.site" :href="activeProject.site" target="_blank" rel="noopener"
+                class="modal-link modal-link--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
                 Acessar Site
               </a>
             </div>

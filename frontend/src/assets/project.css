@@ -408,22 +408,44 @@
   }
 
   .modal-backdrop {
-    padding: 0;
-    align-items: flex-end;
+    padding: 1.25rem 1rem;
+    align-items: center;
   }
 
   .modal {
-    border-radius: 16px 16px 0 0;
-    max-height: 92vh;
+    max-width: 400px;
+    max-height: 85vh;
+    border-radius: 16px;
   }
 
-  /* Imagem menor e sem margin negativo — prioriza o título/tags/descrição visíveis */
   .slideshow {
     aspect-ratio: 16 / 9;
-    max-height: 30vh;
+    max-height: 26vh;
     margin-top: 0;
     border-radius: 16px 16px 0 0;
   }
+
+  .slide-nav-zones {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 2;
+}
+
+.slide-zone {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slide-zone--prev { cursor: w-resize; }
+.slide-zone--next { cursor: e-resize; }
+
+.slide-controls {
+  z-index: 3; /* fica acima das zonas de clique */
+}
 
   .modal-close {
     top: 0.75rem;
