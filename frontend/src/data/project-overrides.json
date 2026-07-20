@@ -1,0 +1,37 @@
+{
+  "gymSystem": {
+    "summary": "Aplicativo de gerenciamento de treinos e dietas para academias, com painel de controle para instrutores e monitoramento de progresso dos alunos.",
+    "description": "Sistema de gestão de conteúdo headless com editor visual no-code, modelagem de conteúdo flexível, versionamento de entradas, CDN embutido para assets e API GraphQL auto-gerada a partir dos schemas.",
+    "tags": ["Vue.Js", "Groq AI", "PostgreSQL", "Node.js", "Docker", "Auth Jwt"],
+    "images": [
+      "homeGymSystem.png",
+      "importGymSystem.png",
+      "loginGymSystem.png",
+      "registerGymSystem.png"
+    ]
+  },
+  "splitup": {
+    "summary": "Plataforma de anotações com IA integrada para resumir e categorizar conteúdo.",
+    "description": "Aplicação de produtividade que usa LLMs para resumir, categorizar e conectar notas automaticamente. Interface limpa com editor markdown, busca semântica e exportação multi-formato.",
+    "tags": ["Vue.js", "Node.js", "Groq AI"],
+    "images": ["splitup1.png", "splitup2.png"]
+  },
+  "TodoList": {
+    "summary": "Aplicação de lista de tarefas desenvolvida para praticar conceitos de front-end com JavaScript puro.",
+    "description": "Projeto desenvolvido utilizando HTML, CSS e JavaScript puro com o objetivo de aprimorar minhas habilidades em desenvolvimento front-end.",
+    "tags": ["html", "css", "JavaScript"],
+    "images": [
+      "todoListPt.png",
+      "todoListIncludePt.png",
+      "todoListEn.png",
+      "todoListAdd.png"
+    ]
+  },
+  "Gincana": {
+    "name": "Caça ao tesouro",
+    "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
+    "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição.",
+    "tags": ["html", "css", "JavaScript"],
+    "images": ["choseEquip.png", "rulesTeams.png", "level1.png"]
+  }
+}

@@ -2,24 +2,74 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar from '../components/NavBar.vue'
 import '../assets/project.css'
-import projectsData from '../data/project.json'
+import overrides from '../data/project-overrides.json'
 
 // Importa todas as imagens da pasta de uma vez
 const imageModules = import.meta.glob('../data/img/*', { eager: true })
 
-// Função helper para resolver o caminho
 function resolveImg(filename) {
   const key = `../data/img/${filename}`
   return imageModules[key]?.default ?? ''
 }
 
-const projects = ref(
-  projectsData.map((p, i) => ({
-    id: i,
-    ...p,
-    images: p.images.map(resolveImg)
-  }))
-)
+// ── Configuração ─────────────────────────────────────────────────────────
+const GITHUB_USERNAME = 'AOS2301'
+const HIDE_FORKS = true
+// Se quiser exibir só uma seleção de repos, marque-os no GitHub com essa topic
+// e troque para true. Deixe false para mostrar todos os públicos.
+const FILTER_BY_TOPIC = false
+const REQUIRED_TOPIC = 'portfolio'
+// ────────────────────────────────────────────────────────────────────────
+
+const projects = ref([])
+const loading = ref(true)
+const loadError = ref(false)
+
+async function loadProjects() {
+  loading.value = true
+  loadError.value = false
+  try {
+    const res = await fetch(
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`
+    )
+    if (!res.ok) throw new Error(`GitHub API respondeu ${res.status}`)
+    let repos = await res.json()
+
+    if (HIDE_FORKS) repos = repos.filter(r => !r.fork)
+    if (FILTER_BY_TOPIC) {
+      repos = repos.filter(r => (r.topics || []).includes(REQUIRED_TOPIC))
+    }
+
+    projects.value = repos.map((repo, i) => {
+      // override.js: dados que a API não fornece (imagens, texto em PT-BR)
+      // chave = nome exato do repositório no GitHub
+      const override = overrides[repo.name] || {}
+
+      const images = (override.images && override.images.length
+        ? override.images
+        : ['placeholder.png']
+      ).map(resolveImg)
+
+      return {
+        id: i,
+        name: override.name || repo.name,
+        summary: override.summary || repo.description || 'Sem descrição.',
+        description: override.description || repo.description || 'Sem descrição detalhada.',
+        repo: repo.html_url,
+        site: override.site || repo.homepage || '',
+        tags: override.tags && override.tags.length
+          ? override.tags
+          : (repo.topics && repo.topics.length ? repo.topics : [repo.language].filter(Boolean)),
+        images
+      }
+    })
+  } catch (err) {
+    console.error('Erro ao buscar repositórios do GitHub:', err)
+    loadError.value = true
+  } finally {
+    loading.value = false
+  }
+}
 
 // ── Modal state ────────────────────────────────────────────────────────────
 const activeProject = ref(null)
@@ -53,7 +103,10 @@ function onKeydown(e) {
   if (e.key === 'ArrowRight') nextSlide()
 }
 
-onMounted(() => window.addEventListener('keydown', onKeydown))
+onMounted(() => {
+  window.addEventListener('keydown', onKeydown)
+  loadProjects()
+})
 onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 // ── Magnetic tilt on cards ─────────────────────────────────────────────────
@@ -80,11 +133,13 @@ function onCardMouseLeave(el) {
         <h2 class="section-title">Projetos</h2>
       </div>
 
-      <div class="cards-grid">
+      <p v-if="loading" class="section-status">Carregando projetos do GitHub...</p>
+      <p v-else-if="loadError" class="section-status">Não foi possível carregar os projetos agora.</p>
+
+      <div v-else class="cards-grid">
         <div v-for="(project, i) in projects" :key="project.id" class="card" :style="{ animationDelay: `${i * 80}ms` }"
           @mousemove="onCardMouseMove($event, $event.currentTarget)"
           @mouseleave="onCardMouseLeave($event.currentTarget)" @click="openProject(project)">
-          <!-- preview image -->
           <div class="card-thumb">
             <img :src="project.images[0]" :alt="project.name" loading="lazy" />
             <div class="card-thumb-overlay" />
@@ -129,12 +184,10 @@ function onCardMouseLeave(el) {
         <div class="modal">
           <button class="modal-close" @click="closeModal">✕</button>
 
-          <!-- Slideshow -->
           <div class="slideshow">
             <img :key="slideIndex" :src="activeProject.images[slideIndex]"
               :alt="`${activeProject.name} screenshot ${slideIndex + 1}`" class="slide-img" />
 
-            <!-- NOVO: zonas de clique esquerda/direita -->
             <div v-if="activeProject.images.length > 1" class="slide-nav-zones">
               <button class="slide-zone slide-zone--prev" @click.stop="prevSlide" aria-label="Imagem anterior"></button>
               <button class="slide-zone slide-zone--next" @click.stop="nextSlide" aria-label="Próxima imagem"></button>
@@ -150,7 +203,6 @@ function onCardMouseLeave(el) {
             </div>
           </div>
 
-          <!-- Info -->
           <div class="modal-info">
             <div class="modal-info-top">
               <h2 class="modal-title">{{ activeProject.name }}</h2>
