@@ -20,6 +20,7 @@
     "summary": "Aplicação de lista de tarefas desenvolvida para praticar conceitos de front-end com JavaScript puro.",
     "description": "Projeto desenvolvido utilizando HTML, CSS e JavaScript puro com o objetivo de aprimorar minhas habilidades em desenvolvimento front-end.",
     "tags": ["html", "css", "JavaScript"],
+    "site": "https://arthurtodolist.netlify.app/",
     "images": [
       "todoListPt.png",
       "todoListIncludePt.png",
@@ -32,6 +33,7 @@
     "summary": "Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.",
     "description": "Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição.",
     "tags": ["html", "css", "JavaScript"],
+    "site": "https://cacagincana.netlify.app/",
     "images": ["choseEquip.png", "rulesTeams.png", "level1.png"]
   }
 }

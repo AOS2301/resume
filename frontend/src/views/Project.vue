@@ -15,10 +15,33 @@ function resolveImg(filename) {
 // ── Configuração ─────────────────────────────────────────────────────────
 const GITHUB_USERNAME = 'AOS2301'
 const HIDE_FORKS = true
-// Se quiser exibir só uma seleção de repos, marque-os no GitHub com essa topic
-// e troque para true. Deixe false para mostrar todos os públicos.
 const FILTER_BY_TOPIC = false
 const REQUIRED_TOPIC = 'portfolio'
+
+const HIDDEN_REPOS = ['readme', GITHUB_USERNAME]
+
+const PRIORITY_ORDER = ['shift', 'gymsystem', 'portfolio', 'portifolio']
+
+function sortByPriority(list) {
+  const rank = item => {
+    const name = item.name.toLowerCase()
+    const idx = PRIORITY_ORDER.findIndex(p => name.includes(p))
+    return idx === -1 ? Infinity : idx
+  }
+  return [...list].sort((a, b) => rank(a) - rank(b))
+}
+
+const EXTRA_PROJECTS = [
+  {
+    name: 'Caça ao Tesouro — DACathon Feevas',
+    summary: 'Sistema de caça ao tesouro desenvolvido para a gincana da minha antiga escola, com desafios, dicas e progressão de fases.',
+    description: 'Projeto desenvolvido para uma gincana escolar onde atuei como organizador do evento e responsável pelos desafios digitais. Foi construído com HTML, CSS e JavaScript puro, focando em simplicidade e rapidez para funcionar durante o fim de semana da competição. O sistema possuía progressão de fases, validação de respostas e páginas interativas para cada desafio.',
+    repo: 'https://github.com/orgs/DACathonFeevas/repositories',
+    site: '',
+    tags: ['SpringBoot', 'JavaScript', 'html', 'css'],
+    images: ['DacFunctionality.png', 'caminhoCritico.png', 'loginDac.png']
+  }
+]
 // ────────────────────────────────────────────────────────────────────────
 
 const projects = ref([])
@@ -39,10 +62,11 @@ async function loadProjects() {
     if (FILTER_BY_TOPIC) {
       repos = repos.filter(r => (r.topics || []).includes(REQUIRED_TOPIC))
     }
+    repos = repos.filter(
+      r => !HIDDEN_REPOS.some(hidden => hidden.toLowerCase() === r.name.toLowerCase())
+    )
 
-    projects.value = repos.map((repo, i) => {
-      // override.js: dados que a API não fornece (imagens, texto em PT-BR)
-      // chave = nome exato do repositório no GitHub
+    const fromGithub = repos.map((repo, i) => {
       const override = overrides[repo.name] || {}
 
       const images = (override.images && override.images.length
@@ -53,8 +77,8 @@ async function loadProjects() {
       return {
         id: i,
         name: override.name || repo.name,
-        summary: override.summary || repo.description || 'Sem descrição.',
-        description: override.description || repo.description || 'Sem descrição detalhada.',
+        summary: override.summary || 'Sem descrição.',
+        description: override.description || 'Sem descrição detalhada.',
         repo: repo.html_url,
         site: override.site || repo.homepage || '',
         tags: override.tags && override.tags.length
@@ -63,12 +87,48 @@ async function loadProjects() {
         images
       }
     })
+
+    const manual = EXTRA_PROJECTS.map((p, i) => ({
+      id: `extra-${i}`,
+      ...p,
+      images: (p.images.length ? p.images : ['placeholder.png']).map(resolveImg)
+    }))
+
+    projects.value = sortByPriority([...fromGithub, ...manual])
   } catch (err) {
     console.error('Erro ao buscar repositórios do GitHub:', err)
     loadError.value = true
   } finally {
     loading.value = false
   }
+}
+
+const cardImageIndex = ref({})
+
+function currentCardImage(project) {
+  const idx = cardImageIndex.value[project.id] || 0
+  return project.images[idx] ?? project.images[0]
+}
+
+function cardPrevImage(e, project) {
+  e.stopPropagation()
+  if (project.images.length < 2) return
+  const len = project.images.length
+  const cur = cardImageIndex.value[project.id] || 0
+  cardImageIndex.value[project.id] = (cur - 1 + len) % len
+}
+
+function cardNextImage(e, project) {
+  e.stopPropagation()
+  if (project.images.length < 2) return
+  const len = project.images.length
+  const cur = cardImageIndex.value[project.id] || 0
+  cardImageIndex.value[project.id] = (cur + 1) % len
+}
+
+// Ao sair do card com o mouse, volta pra primeira imagem
+function resetCardImage(project) {
+  cardImageIndex.value[project.id] = 0
 }
 
 // ── Modal state ────────────────────────────────────────────────────────────
@@ -119,8 +179,9 @@ function onCardMouseMove(e, el) {
   el.style.transform = `perspective(800px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg) translateZ(10px)`
 }
 
-function onCardMouseLeave(el) {
+function onCardMouseLeave(el, project) {
   el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(0px)'
+  if (project) resetCardImage(project)
 }
 </script>
 
