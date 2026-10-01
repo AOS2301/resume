@@ -292,7 +292,7 @@ export default {
 
       experience: [
         {
-          role: 'Desenvolvedor Full Stack Júnior',
+          role: 'Engenheiro de Software Full Stack',
           company: 'PRD Tecnologia e Gestão',
           period: 'Jan 2026 – Atualmente',
           description: 'Atuação no desenvolvimento e manutenção de sistemas empresariais utilizando Java, Vue.js e PostgreSQL. Responsável pela implementação de novas funcionalidades, correção de problemas em ambiente produtivo, desenvolvimento de interfaces web, integração entre sistemas via APIs REST e criação de consultas SQL para suporte às regras de negócio. Participação na manutenção de relatórios JasperReports e soluções de impressão térmica utilizadas por clientes.',

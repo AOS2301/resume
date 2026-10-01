@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap');
 
 /* ── Base ─────────────────────────────────────────── */
-:global(*, *::before, *::after) {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-:global(html, body) {
+html, body {
   margin: 0;
   padding: 0;
   background: #0d0d0d;
