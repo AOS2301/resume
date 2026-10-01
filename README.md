@@ -14,8 +14,6 @@ Este projeto foi desenvolvido utilizando:
 - JavaScript
 - HTML5
 - CSS3
-- Node.js
-- PostgreSQL
 
 ---
 
